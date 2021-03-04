@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useContext } from "react";
+import Nav from "./MovieComponents/Nav";
+import Movies from "./MovieComponents/Movies";
+import AddMovie from "./MovieComponents/AddMovie";
+import { MovieProvider } from "./MovieComponents/MovieContext";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Lobby from "./ChatComponents/Lobby";
+import Room from "./ChatComponents/Room";
+import Call from "./ChatComponents/Call";
+import { RoomContext } from "./ChatComponents/RoomContext";
+
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+
+export default function App() {
+    return (
+        <Router>
+            <Switch>
+                <Route exact path="/" component={Call} />
+            </Switch>
+        </Router>
+    );
 }
 
-export default App;
+// return (
+//     <>
+//         <MovieProvider>
+//             <Nav />
+//             <Movies />
+//             <AddMovie />
+//         </MovieProvider>
+//     </>
+// );
